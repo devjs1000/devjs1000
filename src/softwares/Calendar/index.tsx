@@ -9,13 +9,18 @@ const Calendar = ({ date }: Props) => {
     0
   ).getDate();
 
-  const day = parseDate.getDay();
+  const day = new Date(
+    parseDate.getFullYear(),
+    parseDate.getMonth(),
+    1
+  ).getDay();
+
   const days = [
     ...Array(day).fill(""),
     ,
     ...Array.from({ length: numberOfDaysInMonth }, (_, i) => i + 1),
   ];
-  console.log(day);
+
   const daysName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (

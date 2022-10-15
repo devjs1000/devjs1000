@@ -6,6 +6,7 @@ const initialState: ProcessState = {
     error: null,
     loading: false,
     users: [],
+    shutdown: false,
 };
 
 const processSlice = createSlice({
@@ -32,7 +33,10 @@ const processSlice = createSlice({
         },
         loaded: (state) => {
             state.loading = false;
-        }
+        },
+        shutdown: (state) => {
+            state.shutdown = true;
+        },
     }
 });
 
@@ -43,6 +47,7 @@ interface ProcessState {
     error: string | null;
     users: User[];
     loading: boolean;
+    shutdown: boolean;
 }
 
 interface User {
