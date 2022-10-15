@@ -31,12 +31,7 @@ const useBattery = () => {
       });
     });
 
-    return () => {
-      battery.removeEventListener("chargingchange");
-      battery.removeEventListener("chargingtimechange");
-      battery.removeEventListener("dischargingtimechange");
-      battery.removeEventListener("levelchange");
-    };
+    return () => {};
   }, []);
 
   return battery;

@@ -10,7 +10,9 @@ function Battery({ open = true }: Props) {
   const battery = useBattery();
   return (
     <>
-      <FloatingToast {...{ isOpen, onClose }}>
+      <FloatingToast others={{
+      right: 10
+      }} {...{ isOpen, onClose }}>
         <div>{battery.level}%</div>
       </FloatingToast>
       <TIconButton

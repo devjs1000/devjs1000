@@ -30,7 +30,8 @@ const MiniCalendar = () => {
       <TButton
         others={{
           bg: "white",
-          height: 30,
+          height: 25,
+          width: 100,
           onClick: onToggle,
         }}
         title={date}
