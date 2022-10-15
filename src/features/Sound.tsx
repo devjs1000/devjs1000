@@ -1,12 +1,12 @@
 import TIconButton from "../gui/Button/TIconButton";
 import { FaVolumeUp } from "react-icons/fa";
-import { useDisclosure } from "@chakra-ui/react";
+import { useDisclosure, useEventListener } from "@chakra-ui/react";
 import FloatingToast from "../gui/Container/FloatingToast";
 import TSlider from "../gui/Input/Slider";
 import useSelect from "../hooks/redux/useSelect";
 import { useDispatch } from "react-redux";
 import { setVolume } from "../states/system.slice";
-
+import { useEffect } from "react";
 function Sound({ open = true }: Props) {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const { volume } = useSelect("system");
@@ -14,6 +14,7 @@ function Sound({ open = true }: Props) {
   const handleChange = async (value: number) => {
     await dispatch(setVolume(value));
   };
+
   return (
     <>
       <FloatingToast

@@ -16,18 +16,21 @@ const FloatingToast = ({ children, isOpen, onClose, others }: Props) => {
             w={"100vw"}
             h={"100vh"}
           />
-          <Button
+          <Box
             zIndex={3}
-            bg={"primary.900"}
-            px={2}
-            py={1}
-            rounded={"10px"}
+            bg={"primary.600"}
+            px={4}
+            py={2}
+            rounded={"20px"}
             pos={"absolute"}
             bottom={"70px"}
+            border={"1px solid"}
+            borderColor={"secondary.100"}
+            backdropFilter={"blur(10px)"}
             {...others}
           >
             {children}
-          </Button>
+          </Box>
         </>
       )}
     </>
