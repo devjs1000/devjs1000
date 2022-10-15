@@ -1,32 +1,14 @@
-import {
-  Avatar,
-  Box,
-  ButtonGroup,
-  Center,
-  Divider,
-  Flex,
-  Heading,
-  Icon,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import { BsChevronRight, BsPower } from "react-icons/bs";
+import { Divider, Flex, Heading, Icon, VStack } from "@chakra-ui/react";
+import { BsChevronRight } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import TButton from "../../gui/Button";
-import TIconButton from "../../gui/Button/TIconButton";
 import useSelect from "../../hooks/redux/useSelect";
 import { logout } from "../../states/process.slice";
-import { IoLogOutOutline } from "react-icons/io5";
+import { featuresInAppMenu } from "./featuresInAppMenu";
+import { AppMenuFooter } from "./AppMenuFooter";
 
 const AppMenu = () => {
-  const { name, profile, email } = useSelect("user");
-  const dispatch = useDispatch();
-  const handleLogout = () => {
-    dispatch(logout());
-  };
-  const handleShutDown = () => {
-    setTimeout(window.close, 3000);
-  };
+
   return (
     <Flex
       flexDir={"column"}
@@ -63,47 +45,9 @@ const AppMenu = () => {
         ))}
       </VStack>
       <Divider mt={5} />
-      <Flex mt={5} alignItems={"center"} justifyContent={"space-between"}>
-        <Center gap={2}>
-          <Avatar size={"sm"} name={name} src={profile} />
-          <Box>
-            <Text fontWeight={"normal"}>{name}</Text>
-            <Text fontWeight={"light"} fontSize={"xs"} color={"gray.500"}>
-              {email}
-            </Text>
-          </Box>
-        </Center>
-        <ButtonGroup variant={"outline"}>
-          <TIconButton
-            icon={<IoLogOutOutline />}
-            others={{ "aria-label": "arrow", onClick: handleLogout }}
-          />
-          <TIconButton
-            icon={<BsPower />}
-            others={{ "aria-label": "arrow", onClick: handleShutDown }}
-          />
-        </ButtonGroup>
-      </Flex>
+      <AppMenuFooter />
     </Flex>
   );
 };
 
 export default AppMenu;
-
-const featuresInAppMenu = [
-  {
-    name: "Command",
-    description: "Command",
-    handle: () => {},
-  },
-  {
-    name: "Settings",
-    description: "Settings",
-    handle: () => {},
-  },
-  {
-    name: "About",
-    description: "About",
-    handle: () => {},
-  },
-];

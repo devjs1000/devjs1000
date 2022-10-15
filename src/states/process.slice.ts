@@ -57,5 +57,5 @@ interface User {
     password: string;
 }
 
-export const { login, logout, fetching, fetched, error, loading, loaded } = processSlice.actions;
+export const { login, logout, fetching, fetched, error, loading, loaded, shutdown } = processSlice.actions;
 export default processSlice.reducer;
