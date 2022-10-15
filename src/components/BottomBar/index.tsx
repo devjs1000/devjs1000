@@ -6,7 +6,15 @@ import BarRight from "./components/Right";
 
 const BottomBar = () => {
   return (
-    <Flex px={2} bg={"primary.900"} h={"60px"} w={"full"} alignItems={"center"}>
+    <Flex
+      px={2}
+      border={"1px solid"}
+      borderColor={"secondary.100"}
+      bg={"primary.900"}
+      h={"60px"}
+      w={"full"}
+      alignItems={"center"}
+    >
       <BarLeft />
       <Spacer />
       <BarCenter />
