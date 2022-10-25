@@ -1,3 +1,3 @@
-import wallpaper from "./default/wallpaper.svg";
+import wallpaper from "./default/wallpaper.js";
 
 export { wallpaper };

@@ -20,9 +20,11 @@ const MiniClock = () => {
       </FloatingToast>
       <TButton
         others={{
-          bg: "white",
           height: 25,
+          variant:'ghost',
           width: 100,
+          fontWeight: "normal",
+          fontSize: 14,
           onClick: onToggle,
         }}
         title={time}

@@ -29,9 +29,11 @@ const MiniCalendar = () => {
       </FloatingToast>
       <TButton
         others={{
-          bg: "white",
           height: 25,
           width: 100,
+          variant:'ghost',
+          fontWeight: "normal",
+          fontSize: 16,
           onClick: onToggle,
         }}
         title={date}
