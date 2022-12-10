@@ -8,10 +8,11 @@ const initialState: ProcessState = {
     users: [],
     shutdown: false,
     message: {
-        text: "hello world!",
-        variant: "info"
+        title: "title",
+        variant: "info",
+        description:'description'
     },
-    showMessage: false
+    messageVisible: false
 };
 
 const processSlice = createSlice({
@@ -43,11 +44,11 @@ const processSlice = createSlice({
             state.shutdown = true;
         },
         showMessage: (state, action) => {
-            state.showMessage = true;
+            state.messageVisible = true;
             state.message = action.payload;
         },
         hideMessage: (state) => {
-            state.showMessage = false;
+            state.messageVisible = false;
         }
     }
 });
@@ -60,10 +61,11 @@ interface ProcessState {
     users: User[];
     loading: boolean;
     shutdown: boolean;
-    showMessage: boolean,
+    messageVisible: boolean,
     message: {
-        text: string;
-        variant: variant
+        title: string;
+        variant: variant;
+        description:string;
     }
 }
 
@@ -75,5 +77,5 @@ interface User {
     password: string;
 }
 
-export const { login, logout, fetching, fetched, error, loading, loaded, shutdown, } = processSlice.actions;
+export const { login, logout, fetching, fetched, error, loading, loaded, shutdown,hideMessage, showMessage } = processSlice.actions;
 export default processSlice.reducer;
