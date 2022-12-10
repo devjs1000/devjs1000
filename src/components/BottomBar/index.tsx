@@ -1,4 +1,4 @@
-import { Flex, Spacer } from "@chakra-ui/react";
+import { Flex, Show, Spacer } from "@chakra-ui/react";
 import React from "react";
 import BarCenter from "./components/Center";
 import BarLeft from "./components/Left";
@@ -17,7 +17,10 @@ const BottomBar = () => {
     >
       <BarLeft />
       <Spacer />
+      <Show above="sm" >
+
       <BarCenter />
+      </Show>
       <Spacer />
       <BarRight />
     </Flex>

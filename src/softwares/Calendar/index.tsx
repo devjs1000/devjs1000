@@ -24,7 +24,16 @@ const Calendar = ({ date }: Props) => {
   const daysName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (
-    <Flex bg={"primary.100"} rounded={10} flexWrap={"wrap"} w={400} gap={2}>
+    <Flex
+      transform={["scale(.8)"]}
+      bg={"primary.100"}
+      rounded={10}
+      flexWrap={"wrap"}
+      w={["400px", "400px"]}
+      gap={2}
+      alignItems={"center"}
+      justifyContent={"flex-end"}
+    >
       {daysName.map((day) => (
         <DateButton date={day} />
       ))}
@@ -54,7 +63,7 @@ const DateButton = ({ date }: { date: any }) => {
   return (
     <TButton
       others={{
-        width: 50,
+        width: ["50px"],
         bg,
         color,
       }}

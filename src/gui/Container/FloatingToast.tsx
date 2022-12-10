@@ -18,8 +18,8 @@ const FloatingToast = ({ children, isOpen, onClose, others }: Props) => {
           />
           <Box
             zIndex={3}
-            bg={"primary.600"}
-            px={4}
+            bg={"secondary.400"}
+            px={2}
             py={2}
             rounded={"20px"}
             pos={"absolute"}

@@ -15,9 +15,12 @@ const Window = () => {
   return (
     <Flex
       bgImage={config.wallpaper}
-      h={window.innerHeight - 60}
-      bgRepeat="no-repeat"
-      bgSize="cover"
+      style={{
+        height:"92vh"
+      }}
+      bgRepeat={['repeat', 'no-repeat']}
+      bgSize={['cover', 'cover']}
+      bgPos={"center center"}
     ></Flex>
   );
 };

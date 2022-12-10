@@ -22,8 +22,10 @@ export function AppMenuFooter() {
       <Center gap={2}>
         <Avatar size={"sm"} name={name} src={profile} />
         <Box>
-          <Text fontWeight={"normal"}>{name}</Text>
-          <Text fontWeight={"light"} fontSize={"xs"} color={"gray.500"}>
+          <Text color={"gray.300"} fontWeight={"normal"}>
+            {name}
+          </Text>
+          <Text fontWeight={"light"} fontSize={"xs"} color={"gray.200"}>
             {email}
           </Text>
         </Box>
@@ -31,11 +33,27 @@ export function AppMenuFooter() {
       <ButtonGroup variant={"outline"}>
         <TIconButton
           icon={<IoLogOutOutline />}
-          others={{ "aria-label": "arrow", onClick: handleLogout }}
+          others={{
+            "aria-label": "arrow",
+            bg: "black",
+            _hover: {
+              bg: "white",
+              color: "black",
+            },
+            onClick: handleLogout,
+          }}
         />
         <TIconButton
           icon={<BsPower />}
-          others={{ "aria-label": "arrow", onClick: handleShutDown }}
+          others={{
+            "aria-label": "arrow",
+            bg: "black",
+            _hover: {
+              bg: "white",
+              color: "black",
+            },
+            onClick: handleShutDown,
+          }}
         />
       </ButtonGroup>
     </Flex>

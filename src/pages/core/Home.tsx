@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import BottomBar from "../../components/BottomBar";
 const Home = () => {
   return (
-    <Box>
+    <Box overflow={'clip'}>
       <Outlet />
       <BottomBar />
     </Box>
