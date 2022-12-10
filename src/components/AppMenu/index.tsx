@@ -3,8 +3,10 @@ import { BsChevronRight } from "react-icons/bs";
 import TButton from "../../gui/Button";
 import { featuresInAppMenu } from "./featuresInAppMenu";
 import { AppMenuFooter } from "./AppMenuFooter";
+import { useDispatch } from "react-redux";
 
 const AppMenu = () => {
+  const dispatch = useDispatch();
   return (
     <Flex
       flexDir={"column"}
@@ -14,7 +16,7 @@ const AppMenu = () => {
       bg={"secondary.900"}
       backdropBlur={"md"}
       rounded={10}
-      color={'whiteAlpha.600'}
+      color={"whiteAlpha.600"}
     >
       <Heading fontWeight={"normal"} fontSize={"xl"}>
         AppMenu
@@ -27,7 +29,7 @@ const AppMenu = () => {
             title={feature.name}
             others={{
               "aria-label": feature.name,
-              onClick: feature.handle,
+              onClick: () => feature.handle({ dispatch }),
               w: "full",
               variant: "ghost",
               fontWeight: "normal",

@@ -1,4 +1,6 @@
 import { DispatchProp } from "react-redux";
+import { showMessage } from "../../states/process.slice";
+import { about } from "../../static/system";
 
 export const featuresInAppMenu = [
   {
@@ -17,10 +19,18 @@ export const featuresInAppMenu = [
   {
     name: "About",
     description: "About",
-    handle: ({ dispatch }: ShortCutsProps) => {},
+    handle: ({ dispatch }: ShortCutsProps) => {
+      dispatch(
+        showMessage({
+          variant: "info",
+          title: "ABOUT",
+          description: about,
+        })
+      );
+    },
   },
 ];
 
 interface ShortCutsProps {
-  dispatch: DispatchProp;
+  dispatch: any;
 }
