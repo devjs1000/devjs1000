@@ -87,7 +87,8 @@ const MiniCommandLine = () => {
       </FloatingToast>
       <TInput
         others={{
-          bg: "secondary.900",
+          id: "command-line",
+          bg: "black",
           color: "primary.900",
           onChange: handleChange,
           onFocus: handleFocus,

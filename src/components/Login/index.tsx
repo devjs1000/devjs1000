@@ -5,10 +5,11 @@ import { useDispatch } from "react-redux";
 import { login } from "../../states/process.slice";
 import { wallpaper } from "../../assets/index";
 import TContainer from "../../gui/Container";
+import useMount from "../../hooks/helping/useMount";
+import useHeader from "../../hooks/helping/useHeader";
 
 const Login = () => {
   const dispatch = useDispatch();
-
   const formik = useFormik({
     initialValues: {
       reason: "visiting",
@@ -17,6 +18,9 @@ const Login = () => {
       dispatch(login());
     },
   });
+
+  const {changeTitle}=useHeader()
+  useMount(()=>changeTitle('Welcome To The OSVerse'))
 
   return (
     <Center

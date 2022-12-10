@@ -1,13 +1,22 @@
 import { ReactNode } from "react";
 
-const Elif = ({ condition, True, False }: Props) => {
+const Elif = ({ condition, True, False }: ElifProps) => {
   return <>{condition ? True : False}</>;
 };
 
-export default Elif;
+const If = ({ condition, show }: IfProps) => {
+  return <>{condition ? show : null}</>;
+};
 
-interface Props {
+export { Elif, If };
+
+interface ElifProps {
   condition: boolean;
   True: ReactNode;
   False: ReactNode;
+}
+
+interface IfProps {
+  condition: boolean;
+  show: ReactNode;
 }
