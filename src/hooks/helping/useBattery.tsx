@@ -9,8 +9,8 @@ const useBattery = () => {
   });
 
   useEffect(() => {
-    
-    const battery = navigator.getBattery() 
+    const nv: any = navigator;
+    const battery = nv.getBattery();
     battery.then((battery: any) => {
       setBattery({
         charging: battery.charging,
