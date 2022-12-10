@@ -2,24 +2,21 @@ import { Flex } from "@chakra-ui/react";
 import { wallpaper } from "../../assets";
 import useHeader from "../../hooks/helping/useHeader";
 import useMount from "../../hooks/helping/useMount";
+import useSelect from "../../hooks/redux/useSelect";
 
 const Window = () => {
   const { changeTitle } = useHeader();
-  const config = {
-    wallpaper,
-    title: "Window",
-  };
-
-  useMount(() => changeTitle(config.title));
+  const { wallpaper } = useSelect("system");
+  useMount(() => changeTitle("HOME"));
 
   return (
     <Flex
-      bgImage={config.wallpaper}
+      bgImage={wallpaper}
       style={{
-        height:"92vh"
+        height: "92vh",
       }}
-      bgRepeat={['repeat', 'no-repeat']}
-      bgSize={['cover', 'cover']}
+      bgRepeat={["repeat", "no-repeat"]}
+      bgSize={["cover", "cover"]}
       bgPos={"center center"}
     ></Flex>
   );

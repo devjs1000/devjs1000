@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { wallpaper } from "../assets";
 
 
 const initialState: SystemState = {
@@ -8,6 +9,7 @@ const initialState: SystemState = {
     date: new Date().toLocaleDateString(),
     isOnline: true,
     isMuted: false,
+    wallpaper: wallpaper
 }
 
 const systemSlice = createSlice({
@@ -37,6 +39,9 @@ const systemSlice = createSlice({
         },
         mute: (state) => {
             state.isMuted = true
+        },
+        wallpaper: (state, action) => {
+            state.wallpaper = action.payload
         }
     }
 })
@@ -48,6 +53,7 @@ interface SystemState {
     date: string;
     isOnline: boolean;
     isMuted: boolean;
+    wallpaper: string;
 
 }
 
