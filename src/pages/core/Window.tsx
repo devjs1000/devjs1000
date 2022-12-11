@@ -3,6 +3,7 @@ import PopUp from "../../components/PopUp";
 import useHeader from "../../hooks/helping/useHeader";
 import useMount from "../../hooks/helping/useMount";
 import useSelect from "../../hooks/redux/useSelect";
+import AppLauncer from "../../softwares/AppLauncher";
 import { If } from "../../wrappers/Elif";
 
 const Window = () => {
@@ -20,6 +21,7 @@ const Window = () => {
       bgPos={"center center"}
     >
       <If condition={messageVisible} show={<PopUp />} />
+      <AppLauncer />
     </Flex>
   );
 };
