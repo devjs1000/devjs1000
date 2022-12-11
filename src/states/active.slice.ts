@@ -23,6 +23,9 @@ const activeSlice = createSlice({
         updateStorage: (state, action) => {
             const { storageName } = state
             localStorage.setItem(storageName, { ...JSON.parse(localStorage.getItem(storageName)), ...action.payload })
+        },
+        setActive: (state, action) => {
+            state = { ...state, ...action.payload }
         }
     }
 })
@@ -38,3 +41,7 @@ interface ActiveProps {
     opacity: number;
     storageName: string;
 }
+
+export const { clearStorage, setStorage, updateStorage, setActive } = activeSlice.actions
+
+export default activeSlice.reducer;

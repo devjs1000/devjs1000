@@ -1,9 +1,9 @@
 import React from 'react'
 
-const AppLauncer = () => {
+const AppLauncher = () => {
   return (
-    <div>AppLauncer</div>
+    <div>AppLauncher</div>
   )
 }
 
-export default AppLauncer
+export default AppLauncher
