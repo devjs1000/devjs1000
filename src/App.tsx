@@ -6,7 +6,6 @@ import { Elif } from "./wrappers/Elif";
 
 const App = () => {
   const { isLogged, shutdown } = useSelect("process");
-
   return (
     <Elif
       condition={shutdown}

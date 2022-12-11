@@ -1,6 +1,6 @@
 import TIconButton from "../gui/Button/TIconButton";
 import { TbBattery1, TbBattery2, TbBattery3, TbBattery4 } from "react-icons/tb";
-import { useDisclosure } from "@chakra-ui/react";
+import { Box, useDisclosure } from "@chakra-ui/react";
 import FloatingToast from "../gui/Container/FloatingToast";
 import { useEffect, ReactNode } from "react";
 import useBattery from "../hooks/helping/useBattery";
@@ -36,7 +36,7 @@ function Battery({ open = true }: Props) {
         }}
         {...{ isOpen, onClose }}
       >
-        <div>{level}%</div>
+        <Box color={'primary.900'} >{level}%</Box>
       </FloatingToast>
       <TIconButton
         icon={activeIcon}

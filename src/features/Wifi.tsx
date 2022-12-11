@@ -10,7 +10,7 @@ function Wifi() {
   return (
     <>
       <FloatingToast {...{ isOpen, onClose }}>
-        <Box>{isOnline ? "Online" : "Offline"}</Box>
+        <Box color={"primary.900"}>{isOnline ? "Online" : "Offline"}</Box>
       </FloatingToast>
       <TIconButton
         icon={isOnline ? <BiWifi /> : <BiWifiOff />}

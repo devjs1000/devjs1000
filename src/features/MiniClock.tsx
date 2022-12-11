@@ -14,7 +14,7 @@ const MiniClock = () => {
   return (
     <Box fontSize={14} color={"secondary.800"}>
       <FloatingToast {...{isOpen, onClose}}>
-        <Box fontSize={14} fontWeight={"bold"} color={"secondary.700"}>
+        <Box fontSize={14} fontWeight={"bold"} color={"primary.900"}>
           {time}
         </Box>
       </FloatingToast>
