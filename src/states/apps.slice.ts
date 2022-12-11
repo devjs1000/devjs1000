@@ -52,4 +52,6 @@ type AppsProps = {
     pinned: App[]
 }
 
+export const { addAppToDesktop, addAppToTaskbar, installApp, pinApp, removeAppFromDesktop, removeAppFromTaskbar, uninstallApp, unpinApp } = appsSlice.actions;
+
 export default appsSlice.reducer;
