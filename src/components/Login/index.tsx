@@ -7,6 +7,7 @@ import { wallpaper } from "../../assets/index";
 import TContainer from "../../gui/Container";
 import useMount from "../../hooks/helping/useMount";
 import useHeader from "../../hooks/helping/useHeader";
+import { useEffect } from "react";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -19,8 +20,13 @@ const Login = () => {
     },
   });
 
-  const {changeTitle}=useHeader()
-  useMount(()=>changeTitle('Welcome To The OSVerse'))
+  const { changeTitle } = useHeader();
+  useMount(() => changeTitle("Welcome To The OSVerse"));
+  
+  useEffect(() => {
+    dispatch(login());
+  }, []);
+
 
   return (
     <Center

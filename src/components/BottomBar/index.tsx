@@ -11,6 +11,7 @@ const BottomBar = () => {
       border={"1px solid"}
       borderColor={"secondary.100"}
       bg={"primary.900"}
+      backdropFilter={"blur(10px)"}
       h={"60px"}
       w={"full"}
       alignItems={"center"}
