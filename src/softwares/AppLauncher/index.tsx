@@ -12,10 +12,10 @@ const AppLauncher = () => {
             defaultWidth={app.defaultWidth}
             description={app.description}
             icon={app.icon}
-            name={app.name}
+            name={app.title}
             resizable={app.resizable}
           >
-            <app.component key={index} />;
+            <app.component key={index} />
           </AppPackage>
         );
       })}

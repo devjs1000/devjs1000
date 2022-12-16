@@ -9,7 +9,11 @@ const initialState: SystemState = {
     date: new Date().toLocaleDateString(),
     isOnline: true,
     isMuted: false,
-    wallpaper: wallpaper
+    wallpaper: wallpaper,
+    layout: {
+        m: [12, 12, 12, 12],
+        p: [12, 12, 12, 12]
+    }
 }
 
 const systemSlice = createSlice({
@@ -31,18 +35,23 @@ const systemSlice = createSlice({
         setDate: (state, action) => {
             state.date = action.payload.toLocaleDateString()
         },
-        online: (state) => {
+        setOnline: (state) => {
             state.isOnline = true
         },
-        offline: (state) => {
-            state.isOnline = false
-        },
+
         mute: (state) => {
             state.isMuted = true
         },
-        wallpaper: (state, action) => {
+        setWallpaper: (state, action) => {
             state.wallpaper = action.payload
+        },
+        setPadding: (state, action) => {
+            state.layout.m = action.payload
+        },
+        setMargin: (state, action) => {
+            state.layout.p = action.payload
         }
+
     }
 })
 
@@ -54,9 +63,13 @@ interface SystemState {
     isOnline: boolean;
     isMuted: boolean;
     wallpaper: string;
+    layout: {
+        m: [number, number, number, number],
+        p: [number, number, number, number],
+    }
 
 }
 
 
-export const { darkMode, lightMode, setDate, setTime, setVolume, mute, offline, online } = systemSlice.actions
+export const { darkMode, lightMode, setDate, setTime, setVolume, mute, setOnline, setMargin, setPadding, setWallpaper } = systemSlice.actions
 export default systemSlice.reducer

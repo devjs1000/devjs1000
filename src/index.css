@@ -7,3 +7,7 @@ body{
 .full-height{
     height: calc(100vh - 60px);
 }
+
+.max-height{
+    max-height: calc(100vh - 60px);
+}

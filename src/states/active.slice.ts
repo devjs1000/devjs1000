@@ -1,47 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { AppProps, apps } from "../static/apps";
 
-const initialState: ActiveProps = {
-    height: 400,
-    width: 400,
-    icon: '',
-    id: -1,
-    title: '',
-    opacity: 1,
-    storageName: 'null'
-}
+const initialState: AppProps[] = [...apps]
 
 const activeSlice = createSlice({
     name: 'active',
     initialState,
     reducers: {
-        setStorage: (state, action) => {
-            localStorage.setItem(state.storageName, action.payload)
+        addApp: (state, action) => {
+            state.push(action.payload)
+        },
+        removeApp: (state, action) => {
+            state.splice(action.payload, 1)
         },
         clearStorage: (state) => {
-            localStorage.removeItem(state.storageName)
+            state = []
         },
-        updateStorage: (state, action) => {
-            const { storageName } = state
-            localStorage.setItem(storageName, { ...JSON.parse(localStorage.getItem(storageName)), ...action.payload })
+        setStorage: (state, action) => {
+            state = action.payload
         },
-        setActive: (state, action) => {
-            state = { ...state, ...action.payload }
-        }
     }
 })
 
 
 
-interface ActiveProps {
-    title: string;
-    id: number;
-    icon: string;
-    height: number;
-    width: number;
-    opacity: number;
-    storageName: string;
-}
 
-export const { clearStorage, setStorage, updateStorage, setActive } = activeSlice.actions
+
+export const { clearStorage, setStorage, addApp, removeApp } = activeSlice.actions
 
 export default activeSlice.reducer;
