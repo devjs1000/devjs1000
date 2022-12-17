@@ -8,10 +8,14 @@ import {
   IconButton,
   Spacer,
   Text,
+  Image,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { FaMinus, FaPlus, FaTimes } from "react-icons/fa";
 import { useDispatch } from "react-redux";
+import useMount from "../../hooks/helping/useMount";
+import useSelect from "../../hooks/redux/useSelect";
+import { setMargin } from "../../states/system.slice";
 
 const AppPackage = ({
   children,
@@ -21,27 +25,45 @@ const AppPackage = ({
   icon,
   name,
   resizable,
+  open,
 }: AppPackageProps) => {
-  const [open, setOpen] = React.useState(true);
+  // const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
 
+  const { defaultIcon } = useSelect("system");
+
   const handleOpen = () => {
-    setOpen(true);
+    // setOpen(true);
   };
   const handleClose = () => {
-    setOpen(false);
+    // setOpen(false);
   };
   const handleVisibility = () => {
-    setOpen(false);
+    // setOpen(false);
   };
   const toggleMaximise = () => {};
+
+  useEffect(() => {
+    if (open) {
+      dispatch(setMargin([0, 0, 0, 0]));
+    } else {
+      dispatch(setMargin([10, 10, 10, 10]));
+    }
+  }, [open]);
   if (!open)
     return (
-      <Avatar
+      <Image
         cursor={"pointer"}
         src={icon}
-        onClick={() => setOpen(true)}
-        name={name}
+        onClick={handleOpen}
+        alt={name}
+        h={`${defaultIcon.size}px`}
+        w={`${defaultIcon.size}px`}
+        borderWidth={1}
+        rounded={`${defaultIcon.radius}px`}
+        _hover={{
+          borderColor: defaultIcon.hoverColor,
+        }}
       />
     );
   return (
@@ -77,7 +99,6 @@ const AppPackage = ({
       </Center>
       <Box bg="gray.100" border="1px" borderColor="gray.200" overflow={"auto"}>
         {children}
-        
       </Box>
     </Flex>
   );

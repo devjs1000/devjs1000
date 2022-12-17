@@ -1,16 +1,21 @@
 import { Flex } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 import PopUp from "../../components/PopUp";
 import useHeader from "../../hooks/helping/useHeader";
 import useMount from "../../hooks/helping/useMount";
 import useSelect from "../../hooks/redux/useSelect";
 import AppLauncer from "../../softwares/AppLauncher";
+import { setMargin } from "../../states/system.slice";
 import { If } from "../../wrappers/Elif";
 
 const Window = () => {
   const { changeTitle } = useHeader();
   const { wallpaper } = useSelect("system");
   const { messageVisible } = useSelect("process");
-  useMount(() => changeTitle("HOME"));
+  const dispatch = useDispatch();
+  useMount(() => {
+    changeTitle("HOME");
+  });
 
   return (
     <Flex
@@ -21,6 +26,7 @@ const Window = () => {
       bgPos={"center center"}
     >
       <If condition={messageVisible} show={<PopUp />} />
+
       <AppLauncer />
     </Flex>
   );

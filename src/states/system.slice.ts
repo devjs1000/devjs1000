@@ -11,8 +11,18 @@ const initialState: SystemState = {
     isMuted: false,
     wallpaper: wallpaper,
     layout: {
-        m: [12, 12, 12, 12],
+        m: [0, 0, 0, 0],
         p: [12, 12, 12, 12]
+    },
+    bottomBar: true,
+    defaultIcon: {
+        size: 36,
+        color: '#fff',
+        hoverColor: '#fff',
+        radius: 100
+    },
+    displayEffects: {
+        blur: 0
     }
 }
 
@@ -50,6 +60,9 @@ const systemSlice = createSlice({
         },
         setMargin: (state, action) => {
             state.layout.p = action.payload
+        },
+        setBottomBar: (state, action) => {
+            state.bottomBar = action.payload
         }
 
     }
@@ -66,7 +79,18 @@ interface SystemState {
     layout: {
         m: [number, number, number, number],
         p: [number, number, number, number],
-    }
+    },
+    bottomBar: boolean,
+    defaultIcon: {
+        size: number,
+        color: string,
+        hoverColor: string,
+        radius: number,
+    },
+    displayEffects: {
+        blur: number,
+    },
+
 
 }
 
