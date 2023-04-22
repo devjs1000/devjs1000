@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "removeComments": true,
   },
-  "include": ["src"],
+  "include": ["src", "App.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
