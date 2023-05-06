@@ -10,7 +10,7 @@ const World = () => {
   const setup = (p5: p5Types, canvasParentRef: Element) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
     p5.frameRate(12);
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 10; i++) {
       const oneToSix = parseInt(p5.random(0, 6) as any);
 
       const props = {

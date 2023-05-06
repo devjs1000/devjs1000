@@ -51,9 +51,9 @@ function Pokemon(p5: p5Types, { x, y, imageCount, horizontalDirection, verticalD
         }
 
         const touched = p5.mouseX > this.x && p5.mouseX < this.x + this.width && p5.mouseY > this.y && p5.mouseY < this.y + this.height;
-        let prev: any = false
+       
         if (touched) {
-            p5.cursor(p5.HAND);
+          
             p5.textSize(16)
             p5.rectMode(p5.CENTER);
             p5.fill(255, 255, 255)
@@ -61,6 +61,7 @@ function Pokemon(p5: p5Types, { x, y, imageCount, horizontalDirection, verticalD
             p5.fill(0, 0, 0)
             p5.text('hi there', this.x, this.y - 10)
             this.isMoving = false;
+            p5.cursor(p5.HAND);
         } else {
             p5.cursor(p5.ARROW);
             this.isMoving = true;
